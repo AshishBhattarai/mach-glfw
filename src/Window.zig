@@ -2155,10 +2155,10 @@ inline fn hint(h: Hint, value: anytype) void {
     const value_type_info: std.builtin.Type = @typeInfo(value_type);
 
     switch (value_type_info) {
-        .Int, .ComptimeInt => {
+        .int, .comptime_int => {
             c.glfwWindowHint(@intFromEnum(h), @as(c_int, @intCast(value)));
         },
-        .Bool => {
+        .bool => {
             const int_value = @intFromBool(value);
             c.glfwWindowHint(@intFromEnum(h), @as(c_int, @intCast(int_value)));
         },
@@ -2166,7 +2166,7 @@ inline fn hint(h: Hint, value: anytype) void {
             const int_value = @intFromEnum(value);
             c.glfwWindowHint(@intFromEnum(h), @as(c_int, @intCast(int_value)));
         },
-        .Array => |arr_type| {
+        .array => |arr_type| {
             if (arr_type.child != u8) {
                 @compileError("expected array of u8, got " ++ @typeName(arr_type));
             }
@@ -2175,7 +2175,7 @@ inline fn hint(h: Hint, value: anytype) void {
         .pointer => |pointer_info| {
             const pointed_type = @typeInfo(pointer_info.child);
             switch (pointed_type) {
-                .Array => |arr_type| {
+                .array => |arr_type| {
                     if (arr_type.child != u8) {
                         @compileError("expected pointer to array of u8, got " ++ @typeName(arr_type));
                     }
