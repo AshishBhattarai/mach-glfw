@@ -1,22 +1,10 @@
-<a href="https://machengine.org/pkg/mach-glfw">
-    <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="https://machengine.org/assets/mach/glfw-full-dark.svg">
-        <img alt="mach-glfw" src="https://machengine.org/assets/mach/glfw-full-light.svg" height="150px">
-    </picture>
-</a>
-
-Perfected GLFW bindings for Zig, with 100% API coverage, zero-fuss installation, cross compilation, and more.
+# GLFW binding for zig
+This repository is a fork of the now-discontinued [mach-glfw](https://github.com/thedeadtellnotales/mach-glfw).
 
 ## Features
 
 * Zero-fuss installation, cross-compilation at the flip of a switch, and broad platform support.
 * 100% API coverage. Every function, type, constant, etc. has been exposed in a ziggified API.
-
-## Community maintained
-
-The [Mach engine](https://machengine.org/) project no longer uses GLFW, and so this project is now community-maintained. Pull requests are welcome and will be reviewed. The project will still target [nominated Zig versions](https://machengine.org/docs/nominated-zig/) (and may incidentally work with other Zig versions) but may not see regular updates as it is no longer a Mach project (see [hexops/mach#1166](https://github.com/hexops/mach/issues/1166)).
-
-Some old documentation is available at https://machengine.org/v0.4/pkg/mach-glfw/ (most of which is replicated below).
 
 ## What does a ziggified GLFW API offer?
 
@@ -148,4 +136,4 @@ If your application frequently ignores errors, it may be necessary to call `glfw
 
 ## GLFW version
 
-We generally follow the latest master version of GLFW, as recorded [here](https://github.com/slimsag/glfw), as this allows us to work with the GLFW author to fix e.g. undefined behavior that Zig catches, and benefit from the latest & greatest changes - such as runtime X11/Wayland switching recently.
+We generally follow the latest master version of GLFW, as recorded [here](https://github.com/AshishBhattarai/glfw), as this allows us to work with the GLFW author to fix e.g. undefined behavior that Zig catches, and benefit from the latest & greatest changes - such as runtime X11/Wayland switching recently.
