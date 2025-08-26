@@ -33,7 +33,7 @@ pub fn initVulkanLoader(loader_function: ?VKGetInstanceProcAddr) void {
     c.glfwInitVulkanLoader(loader_function orelse null);
 }
 
-pub const VKGetInstanceProcAddr = *const fn (vk_instance: c.VkInstance, name: [*c]const u8) callconv(.C) ?VKProc;
+pub const VKGetInstanceProcAddr = *const fn (vk_instance: c.VkInstance, name: [*c]const u8) callconv(.c) ?VKProc;
 
 /// Returns whether the Vulkan loader and an ICD have been found.
 ///
@@ -94,7 +94,7 @@ pub inline fn getRequiredInstanceExtensions() ?[][*:0]const u8 {
 /// Generic function pointer used for returning Vulkan API function pointers.
 ///
 /// see also: vulkan_proc, glfw.getInstanceProcAddress
-pub const VKProc = *const fn () callconv(if (builtin.os.tag == .windows and builtin.cpu.arch == .x86) .Stdcall else .C) void;
+pub const VKProc = *const fn () callconv(if (builtin.os.tag == .windows and builtin.cpu.arch == .x86) .Stdcall else .c) void;
 
 /// Returns the address of the specified Vulkan instance function.
 ///
@@ -127,7 +127,7 @@ pub const VKProc = *const fn () callconv(if (builtin.os.tag == .windows and buil
 /// @pointer_lifetime The returned function pointer is valid until the library is terminated.
 ///
 /// @thread_safety This function may be called from any thread.
-pub fn getInstanceProcAddress(vk_instance: ?*anyopaque, proc_name: [*:0]const u8) callconv(.C) ?VKProc {
+pub fn getInstanceProcAddress(vk_instance: ?*anyopaque, proc_name: [*:0]const u8) callconv(.c) ?VKProc {
     internal_debug.assertInitialized();
     if (c.glfwGetInstanceProcAddress(if (vk_instance) |v| @as(c.VkInstance, @ptrCast(v)) else null, proc_name)) |proc_address| return proc_address;
     return null;

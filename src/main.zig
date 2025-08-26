@@ -538,7 +538,7 @@ test "getVersionString" {
 test "init" {
     _ = init(.{ .cocoa_chdir_resources = true });
     if (getErrorString()) |err| {
-        std.log.err("failed to initialize GLFW: {?s}", .{err});
+        std.log.err("failed to initialize GLFW: {s}", .{err});
         std.process.exit(1);
     }
     defer terminate();
