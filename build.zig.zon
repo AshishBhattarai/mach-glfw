@@ -13,8 +13,8 @@
     },
     .dependencies = .{
         .glfw = .{
-            .url = "https://github.com/AshishBhattarai/glfw/archive/87d3a3202a2e21909c38384bf31d368277c5f2a2.tar.gz",
-            .hash = "glfw-0.0.0-lD0VFo6rGQDNct-uNtuvjUU0loQ8aYNWtygNdkRc38fT",
+            .url = "https://github.com/AshishBhattarai/glfw/archive/79ee9605c6530cac82c6dab9aaf7941ae81a6615.tar.gz",
+            .hash = "glfw-0.0.0-lD0VFkitGQC-WaZChkd1mwPs4pYAxSvQi1apEUYAPpLd",
         },
     },
 }

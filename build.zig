@@ -21,8 +21,9 @@ pub fn build(b: *std.Build) !void {
     const main_tests = b.addTest(.{
         .name = "glfw-tests",
         .root_module = module,
+        // https://codeberg.org/ziglang/zig/issues/31272
+        .use_llvm = true,
     });
-    main_tests.linkLibrary(glfw_dep.artifact("glfw"));
     b.installArtifact(main_tests);
     test_step.dependOn(&b.addRunArtifact(main_tests).step);
 
